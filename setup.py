@@ -1,7 +1,6 @@
 #-*- coding: utf8 -*-
 from setuptools import setup
 
-# these lines allow the version to be specified in Makefile.private
 import os
 
 setup(
