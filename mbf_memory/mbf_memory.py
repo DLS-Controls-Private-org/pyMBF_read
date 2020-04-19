@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
 import numpy as np
@@ -47,7 +47,7 @@ Example     :
         self.device_name = device_name
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((hostname, port))
-        self.s = s.makefile()
+        self.s = s.makefile('rwb')
 
 
     def get_turn_min_max(self):
@@ -87,12 +87,13 @@ Example     :
     # code is returned an exception is raised.
     def __send_command(self, command, verbose):
         if verbose:
-            print "cmd_str:", command
+            print("cmd_str:", command)
 
-        self.s.write(command + '\n')
+        out_bytes = (command + '\n').encode()
+        self.s.write(out_bytes)
         self.s.flush()
         status = self.s.read(1)
-        if status[0] != '\0':
+        if status[0] != 0:
             error = self.s.readline()
             raise NameError(status + error[:-1])   # Need to trim \n from line
 
@@ -180,10 +181,10 @@ NameError
         length = samples * channels * data_type().itemsize
 
         if verbose:
-            print "samples:", samples
-            print "ch_per_sample", channels
-            print "format", header_sample_format
-            print "expected_msg_len", length
+            print("samples:", samples)
+            print("ch_per_sample", channels)
+            print("format", header_sample_format)
+            print("expected_msg_len", length)
 
         data = self.s.read(length)
         return np.frombuffer(data, dtype = data_type).reshape(-1, channels).T
@@ -244,10 +245,10 @@ NameError
         bunch_count = header[4]
 
         if verbose:
-            print "N: ", sample_count
-            print "Nb of detectors: ", det_count
-            print "bunches:", bunch_count
-            print "Compensation delay:", compensation_delay
+            print("N: ", sample_count)
+            print("Nb of detectors: ", det_count)
+            print("bunches:", bunch_count)
+            print("Compensation delay:", compensation_delay)
 
         # First read the detector data
         data = self.s.read(sample_count * det_count * 8)
@@ -312,4 +313,4 @@ if __name__ == '__main__':
     offset = min_turn
 
     data = mbf.read_mem(turns, offset, channel, bunch, decimate, tune)
-    print data
+    print(data)
