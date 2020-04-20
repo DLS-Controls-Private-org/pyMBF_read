@@ -3,5 +3,4 @@
 # Dist build output
 /build
 /dist
-/mbf_memory.egg-info/
-/installed.files
+/mbf_read.egg-info/
