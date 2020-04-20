@@ -36,7 +36,9 @@ Example     :
             dev_tango = PyTango.DeviceProxy(device_name)
             self.dev_tango = dev_tango
             self.bunch_nb = dev_tango.BUNCHES
-            hostname = dev_tango.HOSTNAME
+            hostname_l = dev_tango.HOSTNAME
+            hostname_tmp = "".join(map(chr, hostname_l))
+            hostname = hostname_tmp.rstrip("\0")
             port = dev_tango.SOCKET
         elif layer == 'epics':
             self.bunch_nb = catools.caget(device_name + ":INFO:BUNCHES")
