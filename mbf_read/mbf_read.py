@@ -294,7 +294,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Read memory buffer.")
     parser.add_argument("-c", default=None, type=int,
         help="Channel number", dest="channel")
-    parser.add_argument("-d", type=str,
+    parser.add_argument("-d", type=str, required=True,
         help="TMBF device name (EPICS or Tango)", dest="device_name")
     parser.add_argument("-l", default="epics", type=str,
         help="Layer: 'tango' or 'epics'", dest="layer")
