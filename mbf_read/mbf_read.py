@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 import numpy as np
 import argparse
 import socket
@@ -94,10 +96,10 @@ Example     :
         out_bytes = (command + '\n').encode()
         self.s.write(out_bytes)
         self.s.flush()
-        status = self.s.read(1)
+        status = bytearray(self.s.read(1))
         if status[0] != 0:
             error = self.s.readline()
-            raise NameError(status + error[:-1])   # Need to trim \n from line
+            raise NameError((status + error[:-1]).decode())
 
 
     def read_mem(self, turns, offset=0, channel=None, bunch=None,
