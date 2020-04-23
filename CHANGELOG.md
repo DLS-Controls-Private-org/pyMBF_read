@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.1] - 2020-04-23
+### Added
+* Compatibility with Python2
+
 ## [2.0.0] - 2020-04-21
 ### Changed
 * Change module name mbf_memory -> mbf_read
