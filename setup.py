@@ -14,5 +14,4 @@ setup(
     author = 'Benoît Roche',
     author_email = 'benoit.roche@esrf.fr',
     packages = ['mbf_read'],
-    python_requires='>=3.3',
 )
