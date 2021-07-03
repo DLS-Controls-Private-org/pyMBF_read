@@ -179,15 +179,15 @@ NameError
         header = struct.unpack('<IHH', self.s.read(8))
         samples = header[0]
         channels = header[1]
-        format = header[2]
+        sample_format = header[2]
 
-        data_type = self.sample_types[format]
+        data_type = self.sample_types[sample_format]
         length = samples * channels * data_type().itemsize
 
         if verbose:
             print("samples:", samples)
             print("ch_per_sample", channels)
-            print("format", header_sample_format)
+            print("format", sample_format)
             print("expected_msg_len", length)
 
         data = self.s.read(length)
