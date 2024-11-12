@@ -10,24 +10,30 @@ See [DLS Confluence website](https://diamondlightsource.atlassian.net/wiki/space
 
 ### Dependencies
 
-The project has the following general dependencies.
-
-* Minimum python version: 3.3
+The project is compatible with Python 2 and Python 3.
 
 ### Python Module Dependencies
 
 * numpy
 
-### Installation
+### Build package
 
 * build the package
 ```
-make
+python3 setup.py bdist_wheel
 ```
 
-* install it with pip
+or with python >= 3.8 and using `build`
+
 ```
-pip install dist/mbf_read-2.0.0-py3-none-any.whl
+python3 -m build
+```
+
+### Installation
+
+* install the previously built package with pip
+```
+pip install dist/mbf_read-2.0.2-py3-none-any.whl
 ```
 
 ## License

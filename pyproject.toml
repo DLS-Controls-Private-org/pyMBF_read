@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mbf_read"
+dynamic = ["version"]
+description = 'Access MBF memory (DMA)'
+authors = [{ name = "Benoît Roche", email = "benoit.roche@esrf.fr" }, { name = "Michael Abbott", email = "michael.abbott@diamond.ac.uk" }]
+license = { file = "LICENSE" }
+
+[project.urls]
+"Source" = "https://github.com/DLS-Controls-Private-org/pyMBF_read.git"
