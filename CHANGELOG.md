@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.3] - 2024-11-12
+### Fixed
+* Version number
+
 ## [2.0.2] - 2024-11-12
 ### Added
 * Compatibility with Python3 new packaging system ('build')

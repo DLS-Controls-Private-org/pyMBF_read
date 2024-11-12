@@ -33,7 +33,7 @@ python3 -m build
 
 * install the previously built package with pip
 ```
-pip install dist/mbf_read-2.0.2-py3-none-any.whl
+pip install dist/mbf_read-2.0.3-py3-none-any.whl
 ```
 
 ## License
